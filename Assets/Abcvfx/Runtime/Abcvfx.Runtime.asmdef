@@ -1,7 +1,8 @@
 {
     "name": "Abcvfx.Runtime",
     "references": [
-        "GUID:d04eb9c554ad44ceab303cecf0c0cf82"
+        "GUID:d04eb9c554ad44ceab303cecf0c0cf82",
+        "GUID:63ee2b3a69c095740bf1e4ff4d11f294"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -1,5 +1,8 @@
 #pragma kernel Convert
 
+#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
+#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Random.hlsl"
+
 uint IndexCount;
 StructuredBuffer<uint> Indices;
 StructuredBuffer<float> Positions;
@@ -24,18 +27,6 @@ float2 GetTexCoords(int index)
                   TexCoords[index * 2 + 1]);
 }
 
-// Hash function from H. Schechter & R. Bridson, goo.gl/RXiKaH
-uint Hash(uint s)
-{
-    s ^= 2747636419u;
-    s *= 2654435769u;
-    s ^= s >> 16;
-    s *= 2654435769u;
-    s ^= s >> 16;
-    s *= 2654435769u;
-    return s;
-}
-
 [numthreads(8, 8, 1)]
 void Convert(uint2 id : SV_DispatchThreadID)
 {
@@ -43,7 +34,7 @@ void Convert(uint2 id : SV_DispatchThreadID)
     uint seed = id.x + id.y * 1024;
 
     // Random triangle selection
-    uint ti = Hash(seed) % (IndexCount / 3) * 3;
+    uint ti = JenkinsHash(seed) % (IndexCount / 3) * 3;
 
     // Triangle indices
     uint i1 = Indices[ti + 0];
@@ -65,8 +56,8 @@ void Convert(uint2 id : SV_DispatchThreadID)
 
     uint tw, th;
     BaseTexture.GetDimensions(tw, th);
-    uint2 sp = uvc * uint2(tw, th) + 0.5;
-    float4 c = BaseTexture[sp];
+    uint2 sp = float2(uvc.x, 1 - uvc.y) * uint2(tw, th) + 0.5;
+    float4 c = LinearToSRGB(BaseTexture[sp]);
 
     // Output
     PositionMap[id] = float4(pc, 1);

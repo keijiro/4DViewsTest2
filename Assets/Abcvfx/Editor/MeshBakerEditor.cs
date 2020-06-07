@@ -7,13 +7,13 @@ namespace Abcvfx.Editor {
 class MeshBakerEditor : UnityEditor.Editor
 {
     SerializedProperty _meshFilter;
-    SerializedProperty _texture;
+    SerializedProperty _hapPlayer;
     SerializedProperty _vertexCount;
 
     void OnEnable()
     {
         _meshFilter = serializedObject.FindProperty("_meshFilter");
-        _texture = serializedObject.FindProperty("_texture");
+        _hapPlayer = serializedObject.FindProperty("_hapPlayer");
         _vertexCount = serializedObject.FindProperty("_vertexCount");
     }
 
@@ -21,7 +21,7 @@ class MeshBakerEditor : UnityEditor.Editor
     {
         serializedObject.Update();
         EditorGUILayout.PropertyField(_meshFilter);
-        EditorGUILayout.PropertyField(_texture);
+        EditorGUILayout.PropertyField(_hapPlayer);
         EditorGUILayout.PropertyField(_vertexCount);
         serializedObject.ApplyModifiedProperties();
     }

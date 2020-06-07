@@ -11,7 +11,7 @@ public sealed class MeshBaker : MonoBehaviour
     #region Editable attribute
 
     [SerializeField] MeshFilter _meshFilter = null;
-    [SerializeField] Texture _texture = null;
+    [SerializeField] Klak.Hap.HapPlayer _hapPlayer = null;
     [SerializeField] int _vertexCount = 32768;
 
     #endregion
@@ -46,9 +46,12 @@ public sealed class MeshBaker : MonoBehaviour
 
     void LateUpdate()
     {
-        if (_meshFilter == null || _texture == null) return;
+        if (_meshFilter == null || _hapPlayer == null) return;
+
         if (_converter == null) _converter = new MeshToPoints(_compute);
-        _converter.ProcessMesh(_meshFilter.sharedMesh, _texture, _vertexCount);
+
+        _converter.ProcessMesh
+          (_meshFilter.sharedMesh, _hapPlayer.texture, _vertexCount);
     }
 
     #endregion
