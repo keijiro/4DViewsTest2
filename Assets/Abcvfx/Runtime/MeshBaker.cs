@@ -2,6 +2,10 @@ using UnityEngine;
 
 namespace Abcvfx {
 
+//
+// MeshBaker: Convert a textured mesh into a colored point cloud.
+//
+[ExecuteInEditMode]
 public sealed class MeshBaker : MonoBehaviour
 {
     #region Editable attribute
@@ -28,7 +32,7 @@ public sealed class MeshBaker : MonoBehaviour
 
     #region Private objects
 
-    MeshToPointsConverter _converter;
+    MeshToPoints _converter;
 
     #endregion
 
@@ -43,11 +47,8 @@ public sealed class MeshBaker : MonoBehaviour
     void LateUpdate()
     {
         if (_meshFilter == null || _texture == null) return;
-
-        if (_converter == null)
-            _converter = new MeshToPointsConverter(_vertexCount);
-
-        _converter.ProcessMesh(_meshFilter.sharedMesh, _texture, _compute);
+        if (_converter == null) _converter = new MeshToPoints(_compute);
+        _converter.ProcessMesh(_meshFilter.sharedMesh, _texture, _vertexCount);
     }
 
     #endregion

@@ -4,6 +4,9 @@ using UnityEngine.VFX.Utility;
 
 namespace Abcvfx {
 
+//
+// VFX property binder for MeshBaker
+//
 [AddComponentMenu("VFX/Property Binders/Abcvfx/Baked Mesh Binder")]
 [VFXBinder("Abcvfx/Baked Mesh")]
 sealed class VFXBakedMeshBinder : VFXBinderBase
