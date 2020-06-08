@@ -12,6 +12,7 @@
     "com.unity.formats.alembic": "2.0.1-preview.1",
     "com.unity.render-pipelines.high-definition": "7.3.1",
     "com.unity.timeline": "1.2.14",
+    "jp.keijiro.abcvfx": "0.0.1",
     "jp.keijiro.klak.hap": "0.1.13"
   }
 }
