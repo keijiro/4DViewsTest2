@@ -1074,7 +1074,7 @@ MonoBehaviour:
   updateDirector: 0
   updateITimeControl: 1
   searchHierarchy: 0
-  active: 0
+  active: 1
   postPlayback: 2
 --- !u!74 &6195189963220208970
 AnimationClip:
