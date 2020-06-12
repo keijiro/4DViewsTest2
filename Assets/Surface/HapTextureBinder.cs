@@ -13,9 +13,12 @@ sealed class HapTextureBinder : MonoBehaviour
         if (_block == null)
             _block = new MaterialPropertyBlock();
 
+        var renderer = GetComponent<Renderer>();
+        renderer.GetPropertyBlock(_block);
+
         if (_hapPlayer != null && _hapPlayer.texture != null)
             _block.SetTexture(_propertyName, _hapPlayer.texture);
 
-        GetComponent<Renderer>().SetPropertyBlock(_block);
+        renderer.SetPropertyBlock(_block);
     }
 }
