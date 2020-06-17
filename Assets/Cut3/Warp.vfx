@@ -60,57 +60,6 @@ MonoBehaviour:
     min: 0
     max: 1
     descendantCount: 0
-  - name: Abcvfx
-    path: 
-    tooltip: 
-    sheetType: 
-    realType: 
-    defaultValue:
-      m_Type:
-        m_SerializableType: 
-      m_SerializableObject: 
-    min: -Infinity
-    max: Infinity
-    descendantCount: 0
-  - name: PositionMap
-    path: PositionMap
-    tooltip: 
-    sheetType: m_NamedObject
-    realType: Texture2D
-    defaultValue:
-      m_Type:
-        m_SerializableType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: 
-    min: -Infinity
-    max: Infinity
-    descendantCount: 0
-  - name: ColorMap
-    path: ColorMap
-    tooltip: 
-    sheetType: m_NamedObject
-    realType: Texture2D
-    defaultValue:
-      m_Type:
-        m_SerializableType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: 
-    min: -Infinity
-    max: Infinity
-    descendantCount: 0
-  - name: NormalMap
-    path: NormalMap
-    tooltip: 
-    sheetType: m_NamedObject
-    realType: Texture2D
-    defaultValue:
-      m_Type:
-        m_SerializableType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: 
-    min: -Infinity
-    max: Infinity
-    descendantCount: 0
   m_GraphVersion: 4
   m_saved: 1
   m_SubgraphDependencies: []
@@ -201,8 +150,8 @@ VisualEffectResource:
       PARTICLE_PER_STRIP_COUNT);\r\n\t\tInitStripAttributes(particleIndex, attributes,
       stripData);\r\n\t\t// TODO Change seed to be sure we're deterministic on random
       with strip\r\n#endif\r\n        \r\n        {\n            SetAttribute_CAC295B2(
-      /*inout */attributes.position,  /*inout */attributes.seed, float3(10, 0.5,
-      -2), float3(10, 2, 2));\n        }\n        {\n            SetAttribute_E6295C0(
+      /*inout */attributes.position,  /*inout */attributes.seed, float3(10, 0, -2),
+      float3(10, 2, 2));\n        }\n        {\n            SetAttribute_E6295C0(
       /*inout */attributes.velocity,  /*inout */attributes.seed, float3(-20, 0, 0),
       float3(-5, 0, 0));\n        }\n        {\n            SetAttribute_F01429A3(
       /*inout */attributes.lifetime,  /*inout */attributes.seed, (float)1, (float)3);\n       
@@ -716,7 +665,7 @@ VisualEffectResource:
         - m_ExpressionIndex: 13
           m_Value: {x: 10, y: 2, z: 2}
         - m_ExpressionIndex: 14
-          m_Value: {x: 10, y: 0.5, z: -2}
+          m_Value: {x: 10, y: 0, z: -2}
         - m_ExpressionIndex: 15
           m_Value: {x: 10, y: 10, z: 10}
         - m_ExpressionIndex: 16
@@ -2244,7 +2193,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Position, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"position":{"x":10.0,"y":0.5,"z":-2.0}}'
+      m_SerializableObject: '{"position":{"x":10.0,"y":0.0,"z":-2.0}}'
     m_Space: 0
   m_Property:
     name: A
